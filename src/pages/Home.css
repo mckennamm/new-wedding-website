@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Baskervville+SC&family=Fleur+De+Leah&family=Great+Vibes&family=Leckerli+One&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
+/* src/styles/Home.css
+
+body {
+    background-color: #f0ecec;
+    
+}
+
+.home {
+    text-align: center;
+  }
+
+  .main-photo {
+    position: relative;
+    width: 50%;
+    height: 50%;
+    margin: 0 auto;
+  }
+  
+  .main-photo img {
+    width: 100%;
+    height: auto; 
+    object-fit: cover;
+  }
+
+  .photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .photo-title {
+    font-family: 'Great Vibes', serif;
+    letter-spacing: 8px;
+    color: #fff;
+    font-size: 7rem;
+    font-weight: bold;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
+    text-align: center;
+  }
+  
+  .welcome-message {
+    padding: 20px;
+  }
+  
+  .details-button {
+    margin-top: 20px;
+    background-color: #799276;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .details-button:hover {
+    font-weight: bold;
+  }
+
+  .countdown {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 20px;
+  } */
+
+  .welcome-message {
+    padding: 20px;
+    text-align: center;
+    font-family: 'Great Vibes', serif;
+    font-size: 1.5rem;
+    color: #555;
+  }
+
+  .welcome-message h2 {
+    font-size: 'Fleur De Leah', serif;
+  }
+  .welcome-message p {
+    font-family: 'Playfair', serif;
+  }
+  
+  .details-button {
+    margin-top: 20px;
+    background-color: #799276;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Fleur De Leah', serif;
+    font-size: 2.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .details-button:hover {
+    background-color: #6b8268;
+    transform: scale(1.05);
+  }
+  
+  .countdown {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+    color: #799276;
+    font-family: 'Playfair Display SC', serif;
+  }
+  
+  .main-photo {
+    position: relative;
+    width: 50%;
+    height: 50%;
+    margin: 60px auto;
+  }
+  
+  .main-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.275); /* Less dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+  
+  .photo-title {
+    font-family: 'Fleur De Leah', serif;
+    letter-spacing: 8px;
+    color: #b7c7b5;
+    font-size: 5rem;
+    font-weight: bold;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.752);
+    text-align: center;
+  }

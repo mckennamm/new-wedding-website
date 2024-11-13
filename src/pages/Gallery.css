@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Baskervville+SC&family=Great+Vibes&family=Leckerli+One&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
+.body {
+    background-color: #f0ecec;
+    font-family: 'Playfair Display', serif;
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.main-gallery h1 {
+    font-family: 'Great Vibes', serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #799276;
+    text-align: center;
+    width: 100%;
+}
+
+.main-gallery p {
+    font-family: 'Arsenal', sans-serif;
+    font-size: 1.2rem;
+    color: #6b8268;
+    text-align: center;
+    width: 100%;
+}

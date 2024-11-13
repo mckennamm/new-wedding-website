@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+//imports
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import AboutUs from './pages/AboutUs';
+import EventDetails from './pages/EventDetails';
+import FAQ from './pages/FAQ';
+import Gallery from './pages/Gallery';
+import Registry from './pages/Registry';
+import RSVP from './pages/RSVP';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/event-details" element={<EventDetails />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/registry" element={<Registry />} />
+          <Route path="/rsvp" element={<RSVP />} />
+          {/* Add other routes here */}
+        </Routes>
+      </div>
+    </>
   );
 }
 

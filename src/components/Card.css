@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Baskervville+SC&family=Fleur+De+Leah&family=Great+Vibes&family=Leckerli+One&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Reduce the gap between cards */
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: calc(50% - 10px); /* Two columns with gap */
+  transition: transform 0.3s ease;
+  padding: 0; /* Remove padding to reduce space inside the card */
+  margin: 0; /* Remove margin to reduce space between cards */
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-button {
+  background-color: transparent;
+  color: #323b31;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: 'Fleur De Leah', serif;
+  font-size: 3rem;
+  transition: color 0.3s ease;
+  padding: 0; /* Remove padding to reduce space inside the button */
+  margin: 0; /* Remove margin to reduce space inside the button */
+}
