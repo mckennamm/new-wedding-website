@@ -18,10 +18,11 @@
 }
 
 .main-gallery h1 {
-    font-family: 'Great Vibes', serif;
-    font-size: 3rem;
+    font-family: 'Fleur De Leah', serif;
+    font-weight: 300;
+    font-size: 5rem;
     margin-bottom: 20px;
-    color: #799276;
+    color: #60795e;
     text-align: center;
     width: 100%;
 }

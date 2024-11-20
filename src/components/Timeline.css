@@ -10,98 +10,113 @@ body {
   box-sizing: border-box;
 }
 
-.about-us {
-  text-align: center;
-  padding: 20px;
-}
-
-.about-us h1 {
-  font-family: 'Great Vibes', serif;
-  font-size: 3rem;
-  color: #799276;
-  margin-bottom: 40px;
-}
-
+/* src/components/Timeline.css */
 .timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .timeline-item {
   display: flex;
   align-items: center;
-  margin-bottom: 10px; /* Reduce the space between items */
-  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .timeline-icon {
-  flex-shrink: 0;
-  width: 80px; /* Increase the size of the circle */
-  height: 80px; /* Increase the size of the circle */
-  background-color: transparent; /* Make the background transparent */
-  border-radius: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.timeline-icon:hover {
-    animation: leafAnimation 2s infinite;
+  justify-content: center;
+  width: 70px; /* Adjust the width as needed */
+  height: 70px; /* Adjust the height as needed */
+  color: #fff;
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  margin-right: 20px;
 }
 
 .timeline-icon img {
-  width: 100px; /* Adjust the size of the icon */
-  height: 100px; /* Adjust the size of the icon */
-
-}
-
-@keyframes leafAnimation {
-  0%, 100% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(20deg);
-  }
+  width: 100%;
+  height: 100%;
 }
 
 .timeline-content {
-  margin-left: 0;/* Reduce the space between the icon and the text */
-  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .timeline-content h2 {
   font-family: 'Great Vibes', serif;
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: 300;
   color: #6b8268;
   margin: 0;
 }
 
 .timeline-content p {
+  font-family: 'Arsenal SC', sans-serif;
+  font-size: 1.5rem;
+  color: #6b8268;
+  margin: 0;
+}
+
+.timeline-card {
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 10px;
+  text-align: center;
+  max-width: 80%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.timeline-card-content {
+  display: flex;
+  justify-content: space-around;
+}
+
+.timeline-card-content img {
+  width: 50%;
+  height: 50%;
+}
+
+
+.perspective-card {
+  width: 45%;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.perspective-card h3 {
+  font-family: 'Arsenal', sans-serif;
+  font-size: 1.2rem;
+  color: #6b8268;
+  margin-bottom: 10px;
+}
+
+.perspective-card p {
   font-family: 'Arsenal', sans-serif;
   font-size: 1rem;
   color: #6b8268;
   margin: 0;
 }
 
-.timeline-card {
-  display: none;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+.details-link {
+  display: block;
   margin-top: 10px;
-  text-align: left;
+  font-family: 'Arsenal', sans-serif;
+  font-size: 1rem;
+  color: #799276;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.timeline-card p {
-  margin: 0;
-}
-
-.timeline-card img {
-  width: 80%; /* Adjust the width to make the photo smaller */
-  height: auto;
-  border-radius: 10px;
-  margin-top: 10px;
+.details-link:hover {
+  color: #6b8268;
 }

@@ -16,14 +16,24 @@ function Timeline({ events }) {
     <div className="timeline">
       {events.map((event, index) => (
         <div key={index} className="timeline-item" onClick={() => toggleCard(index)}>
-          <div className="timeline-icon">
-            <img src={event.icon} alt="Leaf Icon" />
-          </div>
+         
           <div className="timeline-content">
+          
             <h2>{event.title}</h2>
             <p>{event.date}</p>
             <div id={`timeline-card-${index}`} className="timeline-card">
-              <p>{event.description}</p>
+              <div className="timeline-card-content">
+                <div className="perspective-card his-perspective">
+                  <h3>His Perspective</h3>
+                  <p>{event.hisPerspective}</p>
+                </div>
+                <img src={event.photo} alt={event.title} />
+                <div className="perspective-card her-perspective">
+                  <h3>Her Perspective</h3>
+                  
+                  <p>{event.herPerspective}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

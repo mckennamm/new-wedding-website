@@ -1,0 +1,71 @@
+
+/* src/components/RSVPForm.css */
+.rsvp-form {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .rsvp-form h2 {
+    font-family: 'Great Vibes', serif;
+    font-size: 2.5rem;
+    color: #799276;
+    margin-bottom: 20px;
+  }
+  
+  .rsvp-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .rsvp-form label {
+    font-family: 'Arsenal', sans-serif;
+    font-size: 1.2rem;
+    color: #6b8268;
+    margin-bottom: 5px;
+    align-self: flex-start;
+  }
+  
+  .rsvp-form input,
+  .rsvp-form select,
+  .rsvp-form textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Arsenal', sans-serif;
+    font-size: 1rem;
+  }
+  
+  .rsvp-form textarea {
+    height: 100px;
+  }
+  
+  .rsvp-form button {
+    background-color: #799276;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Arsenal', sans-serif;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .rsvp-form button:hover {
+    background-color: #6b8268;
+  }
+  
+  .rsvp-form p {
+    font-family: 'Arsenal', sans-serif;
+    font-size: 1.2rem;
+    color: #6b8268;
+  }

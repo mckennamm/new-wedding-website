@@ -2,18 +2,31 @@
 
 .countdown-container {
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 200px;
+}
+
+.countdown-container h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #799276;
+  font-family: 'Playfair Display SC', serif;
 }
 
 .countdown {
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 2.5rem;
+    font-weight: 300;
     margin-top: 20px;
+    margin-bottom: 20px;
     text-align: center;
     color: #799276;
-    font-family: 'Great Vibes', serif;
+    font-family: 'Playfair Display SC', serif;
     background-color: #f9f9f9; /* Add background color */
     padding: 20px; /* Add padding */
     border-radius: 10px; /* Add border radius */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    box-shadow: 0 4px 8px rgba(40, 68, 45, 0.387); /* Add box shadow */
     display: inline-block; /* Ensure it doesn't stretch full width */
 }

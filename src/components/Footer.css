@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Baskervville+SC&family=Fleur+De+Leah&family=Great+Vibes&family=Leckerli+One&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
+.footer {
+    background-color: #f0ecec;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #e9ecef;
+    font-family: 'Arsenal SC', sans-serif;
+    box-shadow: 0 4px 8px rgb(115, 108, 108);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer h1 {
+    color: #60795e;
+    margin: 5px 10px;
+    font-size: 3rem;
+    font-weight: 300;
+    font-family: 'Fleur De Leah', sans-serif;
+
+  }
+
+
+iframe {
+    border-radius: 10px;
+    height: 200px;
+    width:  50%;
+    max-width: 1500px;
+    position: sticky;
+    top: 0;
+    align-items: center ;
+  }
+  
+  @media (max-width: 768px) {
+    iframe {
+      width: 80%;
+      height: 60px; 
+    }
+  }

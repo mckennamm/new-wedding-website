@@ -5,17 +5,19 @@
 .about-us {
     text-align: center;
     padding: 20px;
-    background-color: #a6a9a565; /* Light background color */
+    background-color: #fff; /* Light background color */
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     margin: 20px auto;
-    max-width: 100%px;
+    max-width: 50%;
   }
   
   .about-us h1 {
-    font-size: 2.5rem;
+    font-size: 5rem;
     margin-bottom: 20px;
-
+    font-family: 'Fleur De Leah', cursive;
+    font-weight: 300;
+    color: #60795e; /* Dark green */
   }
   
   .about-content {
@@ -25,21 +27,8 @@
     align-items: flex-start;
   }
   
-  .about-photo {
-    flex: 1;
-    margin: 10px;
-
-  }
-  
-  .about-photo img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px; /* Optional: Rounded corners */
-  }
-  
   .about-text {
     flex: 2;
-    margin: 10px;
     text-align: left;
   }
   

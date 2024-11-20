@@ -9,7 +9,7 @@
 }
 
 .card {
-  background-color: #f9f9f9;
+  background-color: #799276;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -21,6 +21,11 @@
   transition: transform 0.3s ease;
   padding: 0; /* Remove padding to reduce space inside the card */
   margin: 0; /* Remove margin to reduce space between cards */
+  max-width: 300px;
+}
+
+.card button {
+  color: #fff;
 }
 
 .card:hover {

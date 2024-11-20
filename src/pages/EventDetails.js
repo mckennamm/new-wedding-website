@@ -1,56 +1,58 @@
-// src/components/EventDetails.js
+// src/pages/EventDetails.js
 import React from 'react';
-import './EventDetails.css'; // Link to your CSS file for styling
-// import Card from './Card';
+import './EventDetails.css'; 
+const weddingWeekendEvents = [
+  {
+    title: 'Rehearsal Dinner',
+    date: 'May 16, 2025',
+    time: '6:00 PM',
+    location: 'TBD',
+    description: 'Bridal party and immediate family share an intimate rehearsal dinner.',
+    photo: './images/icons/romantic-dinner.png',
+  },
+  {
+    title: 'Welcome Drinks',
+    date: 'May 16, 2025',
+    time: '7:30 PM',
+    location: 'TBD',
+    description: 'Join us for a drink to kick off the wedding festivities!',
+    photo: './images/icons/champagne.png'
+  },
+  {
+    title: 'Wedding Ceremony',
+    date: 'May 17, 2025',
+    time: '4:00 PM',
+    location: 'Love\'s Way - 4519 Murphy School Road, Durham, NC',
+    description: 'Our wedding ceremony will take place at the home of our dear friend.',
+    photo: './images/icons/just-married.png'
+  },
+  {
+    title: 'Reception',
+    date: 'May 17, 2025',
+    time: '6:00 PM',
+    location: 'Ye Grand Backyard Tent',
+    description: 'Celebrate with us at our wedding reception with dinner and dancing!',
+    photo: './images/icons/disco-ball.png',
+  },
+  // Add more events as needed
+];
 
-const EventDetails = () => {
+function EventDetails() {
   return (
-    <>
-  <div className="App">
-      {/* <Card className="card">
-        <h2>Event Details</h2>
-        <h3>Date & Time</h3>
-        <p>Saturday, May 17th, 2025</p>
-        <p>Ceremony: 4:00 PM</p>
-        <p>Reception: 6:00 PM</p>
-      </Card>
-      <Card className="card">
-        <h2>Event Details</h2>
-        <h3>Date & Time</h3>
-        <p>Saturday, May 17th, 2025</p>
-        <p>Ceremony: 4:00 PM</p>
-        <p>Reception: 6:00 PM</p>
-      </Card> */}
+    <div className="event-details">
+      <h1>Schedule of Events</h1>
+      {weddingWeekendEvents.map((event, index) => (
 
-
+        <div key={index} className="event-card">
+          <h2>{event.title}</h2>
+          <img src={event.photo} alt={event.title} />
+          <p>{event.date} at {event.time}</p>
+          <p>Location: {event.location}</p>
+          <p>{event.description}</p>
+        </div>
+      ))}
     </div>
-    
-
-    {/* <div className="event-details">
-      <h2>Event Details</h2>
-      <div className="event-item">
-        <h3>Date & Time</h3>
-        <p>Saturday, May 17th, 2025</p>
-        <p>Ceremony: 4:00 PM</p>
-        <p>Reception: 6:00 PM</p>
-      </div>
-      <div className="event-item">
-        <h3>Location</h3>
-        <p>Love's Way</p>
-        <p>4519 Murphy School Road</p>
-        <p>Durahm, North Carolina 27705</p>
-      </div>
-      <div className="event-item">
-        <h3>Dress Code</h3>
-        <p>Semi-Formal attire requested. Please arrive in your best evening wear.</p>
-      </div>
-      <div className="event-item">
-        <h3>Additional Information</h3>
-        <p>Free parking is available at the venue. Please RSVP by March 1, 2025.</p>
-      </div>
-    </div> */}
-    </>
   );
-};
+}
 
 export default EventDetails;

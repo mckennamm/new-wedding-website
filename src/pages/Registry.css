@@ -1,0 +1,31 @@
+/* src/pages/Registry.css */
+.registry {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0ecec;
+  }
+  
+  .registry h1 {
+    font-family: 'Fleur De Leah', cursive;
+    font-size: 5rem;
+    font-weight: 300; 
+    color: #60795e;
+    margin-bottom: 40px;
+  }
+
+  .store-registries {
+    margin-top: 40px;
+  }
+  
+  .store-registries h2 {
+    font-family: 'Great Vibes', serif;
+    font-size: 2.5rem;
+    color: #799276;
+    margin-bottom: 20px;
+  }
+  
+  .store-registry {
+    margin-bottom: 20px;
+
+  }
+
