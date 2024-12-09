@@ -2,9 +2,11 @@
 
 /* src/pages/EventDetails.css */
 .event-details {
-  text-align: center;
-  padding: 20px;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .event-details h1 {
@@ -12,12 +14,13 @@
   font-size: 5rem;
   color: #60795e;
   font-weight: 300;
-  padding: 20px 0;
+  padding: 10px 0;
   background-color:#fff; 
-  border: 1px solid #60795e;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   width: 50%;
-  margin-left: 600px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 40px auto;
 }
 
 .event-card {
@@ -31,9 +34,8 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding-top: 20px;  
   padding-bottom: 20px;
-  text-align: left;
   margin: 40px auto;
-  width: 30%;
+  width: 50%;
   align-items: center;
 }
 
@@ -50,6 +52,7 @@
   font-size: 1.2rem;
   color: #6b8268;
   margin: 10px 0;
+  text-align: center;
   
 }
 

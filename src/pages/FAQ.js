@@ -38,6 +38,10 @@ const FAQ = () => {
       question: '8. What is the weather like in this area?',
       answer: 'Check back closer to wedding date for updated weather info.',
     },
+    {
+      question: '9. What time should I arrive for the ceremony?',
+      answer: 'The ceremony will begin at 4:00 PM sharp, so it\'s probably a good idea to arrive 15 minutes prior, at 3:45 PM.',
+    },
     // Add more questions and answers as needed
   ];
 

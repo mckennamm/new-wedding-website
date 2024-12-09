@@ -6,7 +6,7 @@ const weddingWeekendEvents = [
     title: 'Rehearsal Dinner',
     date: 'May 16, 2025',
     time: '6:00 PM',
-    location: 'TBD',
+    location: 'Osteria Georgi',
     description: 'Bridal party and immediate family share an intimate rehearsal dinner.',
     photo: './images/icons/romantic-dinner.png',
   },
@@ -14,7 +14,7 @@ const weddingWeekendEvents = [
     title: 'Welcome Drinks',
     date: 'May 16, 2025',
     time: '7:30 PM',
-    location: 'TBD',
+    location: 'The Casual Pint',
     description: 'Join us for a drink to kick off the wedding festivities!',
     photo: './images/icons/champagne.png'
   },

@@ -1,19 +1,14 @@
 /* src/pages/Home.css */
-@import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
-
 .home {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  padding-bottom: 80px;
-
 }
 
 .photo-section {
   width: 100%;
-  height: 100vh; /* Adjust the height as needed */
+  height: 100vh; /* Full height for the initial view */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -35,42 +30,10 @@
 
 .photo-title {
   font-family: 'Fleur De Leah', serif;
-  font-size: 7rem;
+  font-weight: 300;
+  font-size: 6.6rem;
   color: #fff;
   margin: 0;
-  font-weight: 300;
-}
-
-.content-section {
-  width: 100%;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.welcome-message {
-  /* background: rgba(0, 0, 0, 0.3); Semi-transparent background */
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 600px;
-  margin: 20px;
-  text-align: center;
-}
-
-.welcome-message h2 {
-  font-family: 'Great Vibes', serif;
-  font-size: 2.7rem;
-  font-weight: 300;
-  color: #455443;
-  margin-bottom: 10px;
-}
-
-.welcome-message p {
-  font-family: 'Playfair Display', sans-serif;
-  font-size: 1.2rem;
-  color: #455443;
-  margin-bottom: 20px;
 }
 
 .photo-button {
@@ -80,55 +43,74 @@
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
-  font-family: 'Playfair Display SC', sans-serif;
+  font-family: 'Arsenal', sans-serif;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.photo-button:hover {
+  background-color: #6b8268;
+}
+
+.content-section {
+  width: 100%;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.content-section.show {
+  display: flex;
+  max-height: 1000px; /* Adjust as needed to fit the content */
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.pink-bar {
+  width: 100%;
+  height: 40px;
+  background-color: #d4a59d;
+}
+
+.welcome-message {
+  background: rgba(128, 147, 128, 0.7); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 1200px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.welcome-message h2 {
+  font-family: 'Great Vibes', serif;
+  font-size: 2.5rem;
   font-weight: 300;
-  font-size: 2rem;
-  transition: background-color 0.3s ease; 
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.welcome-message p {
+  font-family: 'Arsenal', sans-serif;
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .details-button {
   background-color: #799276;
   color: white;
   border: none;
-  padding: 0.8px 20px;
+  padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
-  font-family: 'Fleur De Leah', sans-serif;
-  font-weight: 300;
-  font-size: 3rem;
+  font-family: 'Arsenal', sans-serif;
+  font-size: 1.2rem;
   transition: background-color 0.3s ease;
 }
 
 .details-button:hover {
   background-color: #6b8268;
 }
-
-.card-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-}
-
-.card {
-  background: #799276; 
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  max-width: 300px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.card:hover {
-  background: #6b8268; 
-   
-}
-
-.card h3 {
-  font-family: 'Arsenal SC', serif; 
-  font-size: 1.5rem;
-  color: #fff;
-  font-weight: 600;
-} 

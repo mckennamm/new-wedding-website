@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ref, uploadBytesResumable, getDownloadURL, listAll, getMetadata, updateMetadata } from 'firebase/storage';
+import { ref, uploadBytesResumable, getDownloadURL, listAll, getMetadata } from 'firebase/storage';
 import { storage } from '../firebaseConfig';
 import EXIF from 'exif-js';
 import './PhotoGallery.css';
@@ -8,12 +8,11 @@ function PhotoGallery() {
   const [photos, setPhotos] = useState([]);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [file, setFile] = useState(null);
-  const [caption, setCaption] = useState('');
   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     fetchPhotos();
-  }, []);
+  });
 
   const fetchPhotos = async () => {
     try {
@@ -59,10 +58,6 @@ function PhotoGallery() {
     setFile(e.target.files[0]);
   };
 
-  const handleCaptionChange = (e) => {
-    setCaption(e.target.value);
-  };
-
   const handleUpload = () => {
     if (!file) return;
 
@@ -82,18 +77,12 @@ function PhotoGallery() {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          const newPhoto = { url: downloadURL, name: file.name, dateTaken: new Date().toISOString(), caption };
+          const newPhoto = { url: downloadURL, name: file.name, dateTaken: new Date().toISOString() };
           setPhotos((prevPhotos) => [...prevPhotos, newPhoto]);
           setFile(null);
-          setCaption('');
           setUploading(false);
 
-          // Update metadata with caption
-          updateMetadata(storageRef, {
-            customMetadata: { caption }
-          }).catch((error) => {
-            console.error('Error updating metadata:', error);
-          });
+          
         });
       }
     );
@@ -114,12 +103,6 @@ function PhotoGallery() {
         <label htmlFor="file-input" className="custom-file-upload">
           Choose File
         </label>
-        <input
-          type="text"
-          placeholder="Enter caption"
-          value={caption}
-          onChange={handleCaptionChange}
-        />
         <button onClick={handleUpload} disabled={!file || uploading}>
           {uploading ? 'Uploading...' : 'Upload Photo'}
         </button>
@@ -127,8 +110,7 @@ function PhotoGallery() {
       <div className="gallery">
         {photos.map((photo, index) => (
           <div key={index} className="photo-container" onClick={() => openModal(photo)}>
-            <img src={photo.url} alt={`Photo ${index + 1}`} />
-            <div className="caption">{photo.metadata?.customMetadata?.caption || 'No caption'}</div>
+            <img src={photo.url} alt="engagement" />
           </div>
         ))}
       </div>

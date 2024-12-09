@@ -1,7 +1,7 @@
-/* src/components/Timeline.css */
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arsenal&display=swap');
 
+/*global styles*/
 body {
   background-color: #f0ecec;
   font-family: 'Arsenal', sans-serif;
@@ -10,28 +10,36 @@ body {
   box-sizing: border-box;
 }
 
-/* src/components/Timeline.css */
+/*timeline styles*/
 .timeline {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row; /* Change to row for horizontal layout */
+  align-items: flex-start; /* Align items to the top */
+  justify-content: flex-start; /* Align items to the start */
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+  padding: 30px 30px;
+  margin: 0 auto;
 }
+
 
 .timeline-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  margin: 0 20px; /* Add horizontal margin between items */
+  padding: 0 50px;
 }
 
 .timeline-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 70px; /* Adjust the width as needed */
-  height: 70px; /* Adjust the height as needed */
-  color: #fff;
-  font-size: 1.5rem; /* Adjust the font size as needed */
-  margin-right: 20px;
+  width: 120px; 
+  height: 100px; 
+  border-radius: 50%;
+  background-color: #fff; /* Dark green */
+  margin-bottom: 5px; /* Add space below the icon */
+  cursor: pointer;
 }
 
 .timeline-icon img {
@@ -42,25 +50,28 @@ body {
 .timeline-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .timeline-content h2 {
   font-family: 'Great Vibes', serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 300;
   color: #6b8268;
   margin: 0;
+  cursor: pointer;
 }
 
 .timeline-content p {
-  font-family: 'Arsenal SC', sans-serif;
-  font-size: 1.5rem;
+  font-family: 'Arsenal', sans-serif;
+  font-size: 1rem;
   color: #6b8268;
   margin: 0;
 }
 
 .timeline-card {
-  display: flex;
+  display: none;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -68,55 +79,42 @@ body {
   margin-top: 10px;
   text-align: center;
   max-width: 80%;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
 }
 
 .timeline-card-content {
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .timeline-card-content img {
   width: 50%;
   height: 50%;
+
 }
 
-
 .perspective-card {
+  display: flex;
   width: 45%;
-  background-color: #f9f9f9;
+  background-color: #f0ecec;
   border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Add styles for the card content */
 .perspective-card h3 {
   font-family: 'Arsenal', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #6b8268;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .perspective-card p {
   font-family: 'Arsenal', sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #6b8268;
   margin: 0;
 }
 
-.details-link {
-  display: block;
-  margin-top: 10px;
-  font-family: 'Arsenal', sans-serif;
-  font-size: 1rem;
-  color: #799276;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.details-link:hover {
-  color: #6b8268;
-}

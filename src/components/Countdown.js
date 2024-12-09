@@ -30,7 +30,7 @@ function Countdown({ targetDate }) {
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [timeLeft]);
+  }, [timeLeft, calculateTimeLeft]);
 
   const timerComponents = [];
 

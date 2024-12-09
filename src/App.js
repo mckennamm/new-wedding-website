@@ -17,6 +17,8 @@ function App() {
     <>
       <div className="App">
         <Navbar />
+        <div className="pink-bar"></div>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />

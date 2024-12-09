@@ -1,31 +1,78 @@
 /* src/pages/Registry.css */
+
 .registry {
-    text-align: center;
-    padding: 20px;
-    background-color: #f0ecec;
-  }
-  
-  .registry h1 {
-    font-family: 'Fleur De Leah', cursive;
-    font-size: 5rem;
-    font-weight: 300; 
-    color: #60795e;
-    margin-bottom: 40px;
+  text-align: center;
+  padding: 20px;
+}
+
+.registry-title {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 25px auto;
+    max-width: 50%;
   }
 
+.registry-title h1 {
+  font-family: 'Fleur De Leah', cursive;
+  font-size: 5rem;
+  font-weight: 300; 
+  color: #799276;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #799276;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
   .store-registries {
-    margin-top: 40px;
-  }
-  
-  .store-registries h2 {
-    font-family: 'Great Vibes', serif;
-    font-size: 2.5rem;
-    color: #799276;
-    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
   
   .store-registry {
-    margin-bottom: 20px;
-
+    background-color: #fff;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 500px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
+
+
+  .store-registry:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s;
+  }
+
+  .store-registries h3 {
+    font-family: 'Arsenal SC', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #799276;
+    margin-bottom: 10px;
+  }
+
+  .store-registry img {
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;  
+    border-radius: 10px;
+    padding: 20px;
+  }

@@ -14,7 +14,13 @@
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
+    background-color: #fff;
+    width: 50%;
+    margin: 25px auto;    
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+
 }
 
 .main-gallery h1 {
@@ -27,9 +33,9 @@
     width: 100%;
 }
 
-.main-gallery p {
+p {
     font-family: 'Arsenal', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: #6b8268;
     text-align: center;
     width: 100%;

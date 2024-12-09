@@ -1,62 +1,37 @@
-// src/pages/Registry.js
-import React from 'react';
 import './Registry.css';
-
-const registryItems = [
-  {
-    name: 'KitchenAid Stand Mixer',
-    description: 'A versatile stand mixer for all your baking needs.',
-    link: 'https://www.example.com/kitchenaid-stand-mixer'
-  },
-  {
-    name: 'Dyson Vacuum Cleaner',
-    description: 'A powerful vacuum cleaner for a clean home.',
-    link: 'https://www.example.com/dyson-vacuum-cleaner'
-  },
-  {
-    name: 'Le Creuset Dutch Oven',
-    description: 'A high-quality Dutch oven for cooking delicious meals.',
-    link: 'https://www.example.com/le-creuset-dutch-oven'
-  },
-  {
-    name: 'Nespresso Coffee Machine',
-    description: 'A convenient coffee machine for your daily caffeine fix.',
-    link: 'https://www.example.com/nespresso-coffee-machine'
-  },
-  {
-    name: 'Bose SoundLink Speaker',
-    description: 'A portable speaker with excellent sound quality.',
-    link: 'https://www.example.com/bose-soundlink-speaker'
-  }
-];
 
 function Registry() {
   return (
-    <div className="registry">
-      <h1>Wedding Registry</h1>
-
+    <>
+      <div className="registry-title">
+        <h1>Wedding Registry</h1>
+      </div>
+      <div>
+        <h2>Visit the links below to check out our registries!</h2>
+      </div>
       <div className="store-registries">
-        <h2>Click to purchase:</h2>
         <div className="store-registry">
-          <iframe
-            src="https://www.example.com/store-registry-1"
-            title="Store Registry 1"
-            width="100%"
-            height="400"
-            frameBorder="0"
-          ></iframe>
+          <a href="https://www.target.com/gift-registry/gift/most-ardently" target="_blank" rel="noopener noreferrer">
+            <img src="/images/registry-logos/target.png" alt="Target Registry" />
+          </a>
         </div>
         <div className="store-registry">
-          <iframe
-            src="https://www.example.com/store-registry-2"
-            title="Store Registry 2"
-            width="100%"
-            height="400"
-            frameBorder="0"
-          ></iframe>
+          <a href="https://www.amazon.com/wedding/share/most-ardently" target="_blank" rel="noopener noreferrer">
+            <img src="/images/registry-logos/amazon-logo.webp" alt="Amazon Registry" />
+          </a>
+        </div>
+        <div className="store-registry">
+          <a href="https://www.crateandbarrel.com/gift-registry/molly-mckenna/r7221413" target="_blank" rel="noopener noreferrer">
+          <img src="/images/registry-logos/crate-and-barrel-logo.png" alt="Crate & Barrel Registry" />
+          </a>
+        </div>
+        <div className="store-registry">
+          <a href="https://www.williams-sonoma.com/registry/qfxbv788w2/registry-list.html" target="_blank" rel="noopener noreferrer">
+          <img src="/images/registry-logos/williams-sonoma-logo.png" alt="Williams Sonoma Registry" />
+          </a>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
