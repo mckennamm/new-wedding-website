@@ -1,6 +1,6 @@
 // src/components/RSVPForm.js
 import React, { useState } from 'react';
-import { db } from '../firebaseConfig';
+import { db } from '../firebaseConfig.js';
 import { collection, addDoc } from 'firebase/firestore';
 import './RSVP.css';
 

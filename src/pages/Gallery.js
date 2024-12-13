@@ -1,6 +1,6 @@
 //imports
 import React from 'react';
-import PhotoGallery from '../components/PhotoGallery';
+import PhotoGallery from '../components/PhotoGallery.js';
 
 //styles
 import './Gallery.css'; 

@@ -1,37 +1,38 @@
 // src/components/Navbar.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ user, onLogout }) => {
   return (
     <nav className="navbar">
+      <h1>Welcome, {user?.name || "Guest"}</h1>
       <div className="navbar-container">
-        <div className="navbar-left">
-          <button className="rsvp-button"><Link to="/rsvp">RSVP</Link></button>
-        </div>
         <div className="navbar-center">
           <ul className="nav-menu">
             <li className="nav-item">
-              <Link to="/" className="nav-links">Home</Link>
+              <NavLink to="/" className="nav-links">Home</NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/about" className="nav-links">Our Story</Link>
+              <NavLink to="/about" className="nav-links">Our Story</NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/event-details" className="nav-links">Event Details</Link>
+              <NavLink to="/event-details" className="nav-links">Event Details</NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/travel" className="nav-links">Travel</Link>
+              <NavLink to="/travel" className="nav-links">Travel</NavLink>
             </li> 
             <li className="nav-item">
-              <Link to="/gallery" className="nav-links">Gallery</Link>
+              <NavLink to="/gallery" className="nav-links">Gallery</NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/registry" className="nav-links">Registry</Link>
+              <NavLink to="/registry" className="nav-links">Registry</NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/faq" className="nav-links">FAQ</Link>
+              <NavLink to="/faq" className="nav-links">FAQ</NavLink>
+            </li>
+            <li onClick={onLogout} style={{ cursor: 'pointer' }}>
+              logout
             </li>
           </ul>
         </div>

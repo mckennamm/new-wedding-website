@@ -1,19 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './App.js';
 import { BrowserRouter } from 'react-router-dom'; 
-import { GuestProvider } from './context/GuestContext';
+import { GuestProvider } from './context/GuestContext.js';
+import { AuthProvider } from './context/AuthContext.js';  
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-<GuestProvider>
-  <React.StrictMode>
+<AuthProvider>
+  <GuestProvider>
     <BrowserRouter>
-    <App />
+      <App />
     </BrowserRouter>
-  </React.StrictMode>
-</GuestProvider>
+  </GuestProvider>
+</AuthProvider>
+
 );
 

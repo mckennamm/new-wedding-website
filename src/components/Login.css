@@ -1,28 +1,80 @@
-.login-page {
+/* Style for the login container */
+.login {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.login-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    background-color: #f0ecec;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .login h2 {
+    font-size: 2rem;
+    color: #799276;
+    margin-bottom: 20px;
+    font-family: 'Arsenal SC', sans-serif;
+  }
+  
+  /* Input fields styling */
+  .login input {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .login input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.1);
+  }
+  
+  /* Button styling */
+  .login button {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
     background-color: #799276;
-    color: #fff;
-    font-family: 'Arsenal SC', sans-serif;  
-    padding: 10px 20px;
-    font-size: 16px;
+    color: white;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;    
-}
-
-.login-page form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;  
-    color: #fff;
-}
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    font-family: "Arsenal SC", sans-serif;
+  }
+  
+  .login button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Error message styling */
+  .error {
+    color: #d9534f;
+    font-size: 1rem;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 500px) {
+    .login {
+      padding: 15px;
+    }
+  
+    .login h2 {
+      font-size: 1.8rem;
+    }
+  
+    .login input, .login button {
+      max-width: 100%;
+    }
+  }
+  

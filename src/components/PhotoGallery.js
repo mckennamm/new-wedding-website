@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ref, uploadBytesResumable, getDownloadURL, listAll, getMetadata } from 'firebase/storage';
-import { storage } from '../firebaseConfig';
+import { storage } from '../firebaseConfig.js';
 import EXIF from 'exif-js';
 import './PhotoGallery.css';
 
