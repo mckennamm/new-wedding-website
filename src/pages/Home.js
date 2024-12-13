@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 //COMPONENTS
 import Login from '../components/Login';
 import Countdown from '../components/Countdown';
+import Rsvp from '../components/Rsvp';
 
 //IMAGES  
 import image15 from '../images/image15.jpg';
@@ -19,10 +20,16 @@ const targetDate = new Date('2025-05-17T16:00:00');
 //HOME COMPONENT
 function Home({ isLoggedIn, handleLoginSuccess, handleLogout, userName }) {
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showRsvpModal, setShowRsvpModal] = useState(false);
 
   const toggleLoginModal = () => {
-    setShowLoginModal(!showLoginModal);
+    setShowLoginModal(!showLoginModal)
   };
+
+  const toggleRsvpModal = () => {
+    console.log("RSVP button clicked")
+    setShowRsvpModal(!showRsvpModal);
+  }
 
   return (
     <div className="home">
@@ -40,6 +47,10 @@ function Home({ isLoggedIn, handleLoginSuccess, handleLogout, userName }) {
               <h3>We're so excited to share our love story with you.</h3>
               <button className="logout-button" onClick={handleLogout}>
                 Logout
+              </button>
+
+              <button onClick={toggleRsvpModal} className="rsvp-button">
+                RSVP Now!
               </button>
             </div>
           )}
@@ -64,6 +75,18 @@ function Home({ isLoggedIn, handleLoginSuccess, handleLogout, userName }) {
           </div>
         </div>
       )}
+      {/* RSVP Modal */}
+{showRsvpModal && (
+  <div className="rsvp-modal">
+    <div className="rsvp-modal-content">
+      <button className="close-modal" onClick={toggleRsvpModal}>
+        &times;
+      </button>
+      <Rsvp userName={userName} />
+    </div>
+  </div>
+)}
+
     </div>
   );
 }

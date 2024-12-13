@@ -6,7 +6,6 @@ import './Navbar.css';
 const Navbar = ({ user, onLogout }) => {
   return (
     <nav className="navbar">
-      <h1>Welcome, {user?.name || "Guest"}</h1>
       <div className="navbar-container">
         <div className="navbar-center">
           <ul className="nav-menu">
@@ -30,9 +29,6 @@ const Navbar = ({ user, onLogout }) => {
             </li>
             <li className="nav-item">
               <NavLink to="/faq" className="nav-links">FAQ</NavLink>
-            </li>
-            <li onClick={onLogout} style={{ cursor: 'pointer' }}>
-              logout
             </li>
           </ul>
         </div>
