@@ -2,52 +2,60 @@ import React, { useState } from 'react';
 import { doc, getDoc } from 'firebase/firestore'; // Import Firestore functions
 import { db } from '../firebaseConfig'; // Assuming you have firebaseConfig.js
 import bcrypt from 'bcryptjs'; // Import bcrypt for password comparison
+import { collection, query, where, getDocs } from 'firebase/firestore'; // Import Firestore functions 
 
 const Login = ({ onLoginSuccess }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [error, setError] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
       // Query Firestore for the user document by username
-      const userRef = doc(db, 'users', username);
-      const userSnap = await getDoc(userRef);
+      const usersRef = collection(db, 'users');
+      const q = query(usersRef, where('username', '==', username));
+      const querySnapshot = await getDocs(q); // Get the query snapshot
 
-      if (userSnap.exists()) {
-        const userData = userSnap.data();
+      if (querySnapshot.docs.length > 0) {
+        const userDoc = querySnapshot.docs[0];
+        const userData = userDoc.data();
 
-        // Verify password - you should use a hashing library to compare the passwords
-        const passwordMatch = await bcrypt.compare(password, userData.password); // Use bcrypt or other hashing comparison
-
-        if (passwordMatch) {
+        if (bcrypt.compareSync(password, userData.password)) {
           onLoginSuccess(userData); // Pass user data to handleLoginSuccess
         } else {
-          setErrorMessage('Invalid password');
+          setError('Invalid password. Please try again.');
         }
       } else {
-        setErrorMessage('No user found with that username');
+        setError('No user found with that username.');
       }
-    } catch (error) {
-      console.error('Error logging in:', error);
-      setErrorMessage('An error occurred. Please try again.');
+    } catch (err) {
+      console.error('Error during login:', err);
+      setError('An error occurred. Please try again.');
     }
   };
 
+
   return (
     <form onSubmit={handleLogin}>
-      <div>
-        <label>Username:</label>
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-      </div>
+        <input 
+          type="text" 
+          placeholder="Username"
+          value={username} 
+          onChange={(e) => setUsername(e.target.value)} 
+          required 
+        />
+
+        <input 
+          type="password" 
+          value={password} 
+          placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)} 
+          required 
+        />
+
       <button type="submit">Login</button>
-      {errorMessage && <p>{errorMessage}</p>}
     </form>
   );
 };

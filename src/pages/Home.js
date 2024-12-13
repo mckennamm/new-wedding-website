@@ -7,6 +7,7 @@ import { auth, db } from '../firebaseConfig'; // Import Firebase auth and Firest
 import { onAuthStateChanged } from 'firebase/auth'; // Track auth state
 import { doc, getDoc } from 'firebase/firestore'; // Query Firestore
 import Navbar from '../components/Navbar'; // Import Navbar component
+import Footer from '../components/Footer'; // Import Footer component 
 
 //COMPONENTS
 import Login from '../components/Login';
@@ -24,65 +25,32 @@ const targetDate = new Date('2025-05-17T16:00:00');
 function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState('');
-  const [userId, setUserId] = useState('');
   const [showLoginModal, setShowLoginModal] = useState(false); // State to control modal visibility
   const [loading, setLoading] = useState(true);
 
   // Handle successful login (from Login.js)
-  const handleLoginSuccess = async (uid) => {
+  const handleLoginSuccess = (userData) => {
     setIsLoggedIn(true);
-    setUserId(uid);
-    setShowLoginModal(false); // Close the modal after successful login
+    setUserName(userData.name);
+    setShowLoginModal(false);
+  }
 
-    try {
-      const userRef = doc(db, 'users', uid); // Reference to the user's Firestore document
-      const userSnap = await getDoc(userRef);
-
-      if (userSnap.exists()) {
-        const userData = userSnap.data();
-        setUserName(userData.name); // Set user name from Firestore
-      } else {
-        console.log('No user document found');
-      }
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-    }
+  const toggleLoginModal = () => {
+    setShowLoginModal(!showLoginModal);
   };
 
-  // Track auth state (useful for persistent sessions)
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        console.log("user is logged in:", user);
-        handleLoginSuccess(user.uid); // Auto-login if the user is already signed in
-      } else {
-        console.log("user is logged out");
-        setIsLoggedIn(false);
-      }
-      setLoading(false); //End loading once auth check is complete
-    });
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUserName('');
+    setShowLoginModal(false); // Optionally, hide the login modal after logout
+};
 
-      return () => unsubscribe();
-  }, []);
-
-  const handleLogout = async () => {
-    try {
-      await auth.signOut();
-      setIsLoggedIn(false);
-      setUserName('');
-      setUserId('');
-    } catch (error) {
-      console.error('Error logging out:', error);
-      alert('There was an issue logging out. Please try again.')
-    }
-  };
-
-  const toggleLoginModal = () => setShowLoginModal(!showLoginModal); // Toggle modal visibility
+    
 
   return (
     <div className="home">
        {/* Render Navbar only when logged in */}
-      {isLoggedIn ? <Navbar /> : null}
+      {isLoggedIn && <Navbar />}
       <div className="photo-section" style={{ backgroundImage: `url(${image15})` }}>
         <div className="photo-overlay">
           <h1 className="photo-title">Molly & Cameron</h1>
@@ -93,7 +61,7 @@ function Home() {
               Login
             </button>
           ) : (
-            <div className="welcome-message">
+            <div className="welcome-message">   
               <h2>Welcome, {userName ? userName : 'Guest'}!</h2>
               <button className="logout-button" onClick={handleLogout}>
                 Logout
@@ -102,6 +70,7 @@ function Home() {
           )}
         </div>
       </div>
+      
 
       {!loading && isLoggedIn && <Countdown targetDate={targetDate} />}
 
@@ -116,6 +85,8 @@ function Home() {
           </div>
         </div>
       )}
+       {isLoggedIn && <Footer />}
+   
     </div>
   );
 }
