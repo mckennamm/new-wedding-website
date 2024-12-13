@@ -48,6 +48,7 @@ const Rsvp = ({ userName }) => {
             <option value="Chicken">Chicken</option>
             <option value="Vegetarian">Vegetarian</option>
             <option value="Vegan">Vegan</option>
+            <option value="Vegan">Vegan</option> 
           </select>
         </label>
 

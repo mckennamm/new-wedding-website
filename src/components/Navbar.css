@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Baskervville+SC&family=Fleur+De+Leah&family=Great+Vibes&family=Leckerli+One&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
 
-/* src/components/Navbar.css */
+/* Navbar styles */
 .navbar {
   background: #f0ecec;
   height: 60px;
@@ -12,9 +12,10 @@
   position: sticky;
   top: 0;
   z-index: 10;
+  width: 100%;
 }
 
-/* Navbar container */
+/* Navbar container (centering content) */
 .navbar-container {
   display: flex;
   justify-content: space-between;
@@ -22,9 +23,6 @@
   width: 100%;
   max-width: 1500px;
 }
-
-/* Navbar logo */
-
 
 .navbar-center {
   flex: 2;
@@ -59,16 +57,16 @@
 
 .nav-item {
   font-family: 'Arsenal SC', sans-serif;
-    color: #4f3b41;
-    letter-spacing: 3px;
-    font-weight: 300;
-    font-size: 1.2rem;
-    text-decoration: none;
-    padding: 0 1rem;
-    word-spacing: 5px;
-   
+  color: #4f3b41;
+  letter-spacing: 3px;
+  font-weight: 300;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 0 1rem;
+  word-spacing: 5px;
 }
 
+/* RSVP button styles */
 .rsvp-button {
   background-color: #799276;
   color: white;
@@ -89,15 +87,6 @@
 }
 
 /* Media Queries for responsive design */
-
-@media (max-width: 960px) {
-  .navbar-container {
-    padding: 0 24px;
-  }
-}
-
- /* Media Queries for responsive design */
-
 @media (max-width: 960px) {
   .navbar-container {
     padding: 0 24px;
@@ -107,16 +96,20 @@
     display: none; /* Hide the nav links on smaller screens */
   }
 
-  .navbar-left, .navbar-right {
-    flex: 1;
-    justify-content: center;
+  .burger-menu {
+    display: flex; /* Show the burger menu icon */
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 999;
   }
 
-  .rsvp-button {
-    padding: 10px 20px;
-    font-size: 16px;
+  .burger-menu div {
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: #000;
+    transition: 0.3s;
   }
-
 }
 
 @media (max-width: 768px) {
@@ -125,10 +118,13 @@
     align-items: center;
   }
 
-  .navbar-left, .navbar-right {
+  .nav-menu.active {
+    display: flex; /* Show the nav links when burger menu is clicked */
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    justify-content: center;
-    margin-bottom: 10px;
+    background-color: #f0ecec;
+    padding: 1rem 0;
   }
 
   .rsvp-button {
@@ -136,4 +132,3 @@
     text-align: center;
   }
 }
-
