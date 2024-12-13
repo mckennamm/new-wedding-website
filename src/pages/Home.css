@@ -92,6 +92,14 @@
   margin-bottom: 10px;
 }
 
+.welcome-message h3 {
+  font-family: 'Arsenal', sans-serif;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
 .welcome-message p {
   font-family: 'Arsenal', sans-serif;
   font-size: 1.2rem;

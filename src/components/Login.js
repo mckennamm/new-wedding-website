@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { doc, getDoc } from 'firebase/firestore'; // Import Firestore functions
+import { doc, getDoc, collection, query, where, getDocs } from 'firebase/firestore'; // Import Firestore functions
 import { db } from '../firebaseConfig'; // Assuming you have firebaseConfig.js
 import bcrypt from 'bcryptjs'; // Import bcrypt for password comparison
-import { collection, query, where, getDocs } from 'firebase/firestore'; // Import Firestore functions 
 
-const Login = ({ onLoginSuccess }) => {
+
+//LOGIN COMPONENT
+const Login = ({ onLoginSuccess, setShowLoginModal }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -22,12 +23,18 @@ const Login = ({ onLoginSuccess }) => {
         const userDoc = querySnapshot.docs[0];
         const userData = userDoc.data();
 
+  
+
         if (bcrypt.compareSync(password, userData.password)) {
+          console.log('Password matches! Logging in...');
           onLoginSuccess(userData); // Pass user data to handleLoginSuccess
+          setShowLoginModal(false)
         } else {
+          console.log('Invalid password.')
           setError('Invalid password. Please try again.');
         }
       } else {
+        console.log('No user found');
         setError('No user found with that username.');
       }
     } catch (err) {
@@ -56,6 +63,7 @@ const Login = ({ onLoginSuccess }) => {
         />
 
       <button type="submit">Login</button>
+      {error && <p>{error}</p>}
     </form>
   );
 };

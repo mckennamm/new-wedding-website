@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { login } from "./auth"; // Import login function  
+import { auth, db } from "./firebaseConfig"; // Import Firebase auth and Firestore
+import { doc, getDoc } from "firebase/firestore"; // Query Firestore
 
 // Pages and Components
 import Navbar from "./components/Navbar";
@@ -13,22 +15,50 @@ import Gallery from "./pages/Gallery";
 import Registry from "./pages/Registry";
 import Travel from "./pages/Travel";
 import RSVP from "./pages/RSVP";
-import Login from "./components/Login"; // Import Login component
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState(null);
+  const [userName, setUserName] = useState('');
 
+  useEffect(() => {
+    const storedUserData = localStorage.getItem('user');
+    if (storedUserData) {
+      const userData = JSON.parse(storedUserData);
+      setIsLoggedIn(true);
+      setUserName(userData.name);
+    }
+  }, [])
+;
+
+  const handleLoginSuccess = (userData) => {
+    console.log('Login Success:', userData);
+    setIsLoggedIn(true);
+    setUserName(userData.name);
+    localStorage.setItem('user', JSON.stringify(userData));
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUserName('');
+    localStorage.removeItem('user');
+  }
 
 
   return (
     <div className="App">
       {/* Navbar: Render only if logged in */}
-      {isLoggedIn ? <Navbar /> : null} {/* Render Navbar only if user is logged in */}
+      {isLoggedIn ? <Navbar /> : null} 
 
+      {/* <Home setIsLoggedIn={setIsLoggedIn} /> */}
       {/* Main Content */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home 
+            setIsLoggedIn={setIsLoggedIn}
+            isLoggedIn={isLoggedIn}
+            userName={userName}
+            handleLoginSuccess={handleLoginSuccess}
+            handleLogout={handleLogout}
+            />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/event-details" element={<EventDetails />} />
         <Route path="/faq" element={<FAQ />} />
@@ -39,7 +69,7 @@ function App() {
       </Routes>
 
       {/* Footer */}
-      {isLoggedIn && <Footer />}
+      {isLoggedIn && <Footer />} 
     </div>
   );
 }

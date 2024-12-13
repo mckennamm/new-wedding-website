@@ -2,12 +2,7 @@
 
 
 //IMPORTS
-import React, { useState, useEffect } from 'react';
-import { auth, db } from '../firebaseConfig'; // Import Firebase auth and Firestore
-import { onAuthStateChanged } from 'firebase/auth'; // Track auth state
-import { doc, getDoc } from 'firebase/firestore'; // Query Firestore
-import Navbar from '../components/Navbar'; // Import Navbar component
-import Footer from '../components/Footer'; // Import Footer component 
+import React, { useState } from 'react';
 
 //COMPONENTS
 import Login from '../components/Login';
@@ -22,47 +17,27 @@ import './Home.css';
 const targetDate = new Date('2025-05-17T16:00:00');
 
 //HOME COMPONENT
-function Home() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState('');
-  const [showLoginModal, setShowLoginModal] = useState(false); // State to control modal visibility
-  const [loading, setLoading] = useState(true);
-
-  // Handle successful login (from Login.js)
-  const handleLoginSuccess = (userData) => {
-    setIsLoggedIn(true);
-    setUserName(userData.name);
-    setShowLoginModal(false);
-  }
+function Home({ isLoggedIn, handleLoginSuccess, handleLogout, userName }) {
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   const toggleLoginModal = () => {
     setShowLoginModal(!showLoginModal);
   };
 
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    setUserName('');
-    setShowLoginModal(false); // Optionally, hide the login modal after logout
-};
-
-    
-
   return (
     <div className="home">
-       {/* Render Navbar only when logged in */}
-      {isLoggedIn && <Navbar />}
       <div className="photo-section" style={{ backgroundImage: `url(${image15})` }}>
         <div className="photo-overlay">
           <h1 className="photo-title">Molly & Cameron</h1>
 
-          {/* Conditional rendering based on login state */}
           {!isLoggedIn ? (
             <button onClick={toggleLoginModal} className="login-button">
               Login
             </button>
           ) : (
-            <div className="welcome-message">   
+            <div className="welcome-message">
               <h2>Welcome, {userName ? userName : 'Guest'}!</h2>
+              <h3>We're so excited to share our love story with you.</h3>
               <button className="logout-button" onClick={handleLogout}>
                 Logout
               </button>
@@ -70,23 +45,25 @@ function Home() {
           )}
         </div>
       </div>
-      
 
-      {!loading && isLoggedIn && <Countdown targetDate={targetDate} />}
+      {isLoggedIn && <Countdown targetDate={targetDate} />}
 
-      {/* Modal for Login */}
       {showLoginModal && (
         <div className="login-modal">
           <div className="login-modal-content">
             <button className="close-modal" onClick={toggleLoginModal}>
               &times;
             </button>
-            <Login onLoginSuccess={handleLoginSuccess} />
+            <Login 
+              onLoginSuccess={(userData) => {
+                handleLoginSuccess(userData);
+                setShowLoginModal(false); // Close the modal on successful login
+              }} 
+              setShowLoginModal={setShowLoginModal} // Pass the function to close the modal
+            />
           </div>
         </div>
       )}
-       {isLoggedIn && <Footer />}
-   
     </div>
   );
 }
