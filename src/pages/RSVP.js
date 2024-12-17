@@ -1,80 +1,98 @@
-// src/components/RSVPForm.js
-import React, { useState } from 'react';
-import { db } from '../firebaseConfig.js';
-import { collection, addDoc } from 'firebase/firestore';
-import './RSVP.css';
+import React, { useEffect, useState } from 'react';
+import { db } from '../firebaseConfig' // Adjust the path to your Firebase config file
+import { doc, getDoc } from 'firebase/firestore';
 
-function RSVPForm() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [attending, setAttending] = useState('yes');
-  const [message, setMessage] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+const RSVP = ({ userId }) => {
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const updateGuest = (index, updates) => {
+    setUserData((prev) => {
+      const updatedGuests = [...prev.guests];
+      updatedGuests[index] = { ...updatedGuests[index], ...updates };
+      return { ...prev, guests: updatedGuests };
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      await addDoc(collection(db, 'rsvps'), {
-        name,
-        email,
-        attending,
-        message,
-        timestamp: new Date()
-      });
-      setSubmitted(true);
+      await setDoc(doc(db, 'users', userId), userData);
+      alert('RSVP updated successfully!');
     } catch (error) {
-      console.error('Error adding document: ', error);
+      console.error('Error updating RSVP:', error);
+      alert('There was an error submitting your RSVP. Please try again.');
     }
   };
+  
+  
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const userDoc = await getDoc(doc(db, 'users', userId));
+        if (userDoc.exists()) {
+          setUserData(userDoc.data());
+        } else {
+          console.error('No such user!');
+        }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (userId) {
+      fetchUser();
+    }
+  }, [userId]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!userData) {
+    return <div>User not found.</div>;
+  }
 
   return (
-    <div className="rsvp-form">
-      <h2>RSVP</h2>
-      {submitted ? (
-        <p>Thank you for your RSVP!</p>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>Name:</label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
-          <div>
-            <label>Email:</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div>
-            <label>Attending:</label>
-            <select
-              value={attending}
-              onChange={(e) => setAttending(e.target.value)}
-            >
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-          </div>
-          <div>
-            <label>Message:</label>
-            <textarea
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            ></textarea>
-          </div>
-          <button type="submit">Submit</button>
-        </form>
-      )}
-    </div>
-  );
-}
+    <div>
+  <h1>RSVP for {userData.username || 'Guest'}</h1>
+  <form onSubmit={handleSubmit}>
+    {userData.guests.map((guest, index) => (
+      <div key={index}>
+        <h3>{guest.name}</h3>
+        <label>
+          Attending:
+          <input
+            type="checkbox"
+            defaultChecked={guest.attending}
+            onChange={(e) =>
+              updateGuest(index, { attending: e.target.checked })
+            }
+          />
+        </label>
+        <label>
+          Meal Choice:
+          <select
+            defaultValue={guest.mealChoice}
+            onChange={(e) =>
+              updateGuest(index, { mealChoice: e.target.value })
+            }
+          >
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Non-Vegetarian">Non-Vegetarian</option>
+            <option value="Vegan">Vegan</option>
+          </select>
+        </label>
+      </div>
+    ))}
+    <button type="submit">Submit RSVP</button>
+  </form>
+</div>
 
-export default RSVPForm;
+  );
+};
+
+export default RSVP;

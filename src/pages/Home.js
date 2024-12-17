@@ -7,7 +7,6 @@ import React, { useState } from 'react';
 //COMPONENTS
 import Login from '../components/Login';
 import Countdown from '../components/Countdown';
-import Rsvp from '../components/Rsvp';
 
 //IMAGES  
 import image15 from '../images/image15.jpg';
@@ -49,9 +48,6 @@ function Home({ isLoggedIn, handleLoginSuccess, handleLogout, userName }) {
                 Logout
               </button>
 
-              <button onClick={toggleRsvpModal} className="rsvp-button">
-                RSVP Now!
-              </button>
             </div>
           )}
         </div>
@@ -75,17 +71,6 @@ function Home({ isLoggedIn, handleLoginSuccess, handleLogout, userName }) {
           </div>
         </div>
       )}
-      {/* RSVP Modal */}
-{showRsvpModal && (
-  <div className="rsvp-modal">
-    <div className="rsvp-modal-content">
-      <button className="close-modal" onClick={toggleRsvpModal}>
-        &times;
-      </button>
-      <Rsvp userName={userName} />
-    </div>
-  </div>
-)}
 
     </div>
   );

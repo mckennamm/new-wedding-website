@@ -22,13 +22,31 @@
   text-align: center;
 }
 
-h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+.registry-information {
+  padding: 20px;
+  background-color: #f0ecec;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 25px auto;
+  max-width: 65%; 
+}
+
+.registry-information h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
   font-weight: 300;
   color: #799276;
   margin-bottom: 20px;
   text-align: center;
+}
+
+.registry-information p {
+  font-family: 'Arsenal', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #799276;
+  margin-bottom: 20px;
+  text-align: center; 
 }
 
 

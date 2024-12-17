@@ -6,8 +6,9 @@ function Registry() {
       <div className="registry-title">
         <h1>Wedding Registry</h1>
       </div>
-      <div>
+      <div className="registry-information">
         <h2>Visit the links below to check out our registries!</h2>
+        <p>Thank you for celebrating with us! <br /> <br />  For those who would like to bless us as we begin our new life together, we have created registries with items and experiences that will help us build our home and create memories together as we start our family. <br /> <br /> Feel free to explore the options below, but of course, there is no pressure—your love and support mean the world to us, and we’re just grateful to have you in our lives. </p>
       </div>
       <div className="store-registries">
         <div className="store-registry">
