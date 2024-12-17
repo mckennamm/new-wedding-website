@@ -5,27 +5,27 @@
     justify-content: center;
     align-items: center;
     background-color: #f0ecec;
-    color: white;
-    font-family: 'Arsenal', sans-serif;
-    font-size: 1.2rem;
-    padding: 10px;
-    margin-top: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(40, 68, 45, 0.387);
+    margin-bottom: 10px;
+    width: 100%;
+
 }
 
 iframe {
     width: 50%;
-    height: 150px;
+    height: 11vh;   
     border: none;
-    margin-left: 10px;
-    border-radius: 5px;
     box-shadow: 0 4px 8px rgba(40, 68, 45, 0.387);
+
 }
 
 @media (max-width: 768px) {
     iframe {
         width: 80%;
         height: 60px; 
+
     }
+
+    .footer {
+        max-height: 60px;
+    }   
 }

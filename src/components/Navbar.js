@@ -30,6 +30,9 @@ const Navbar = ({ user, onLogout }) => {
             <li className="nav-item">
               <NavLink to="/faq" className="nav-links">FAQ</NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink to="/rsvp" className="nav-links">RSVP</NavLink>
+            </li>
           </ul>
         </div>
       </div>
